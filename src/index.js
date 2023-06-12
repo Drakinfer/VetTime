@@ -1,19 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import ErrorPage from "./error-page";
+import NavBar from './components/nav/nav';
 import Login from './components/login/Login';
 import HomePage from './pages/HomePage';
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
-import FormCabinet from './components/form-infos-cabinet/Formcabinet';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    // element: <BackOfficeVeto />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<HomePage/>} />
-      <Route path="/login" element={<Login/>} />
-      <Route path="/infocabinet" element={<FormCabinet/>}/>
-    </Routes>
-  </Router>
-    
+  <React.StrictMode>
+    <div>
+      <div className='homeNav'>
+        <NavBar />
+      </div>
+      <RouterProvider router={router} />
+    </div>
+  </React.StrictMode>
 );
