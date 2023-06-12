@@ -1,44 +1,54 @@
 import React, { useState } from 'react';
-import './Login.css'
+import logo from '../../assets/images/logovet.png';
+import './Login.css';
 
-const Login = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Gérer la soumission du formulaire ici
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Ici, vous pouvez ajouter la logique pour traiter la soumission du formulaire
+    // par exemple, en envoyant les données d'authentification au serveur
   };
 
   return (
-    <div>
-      <header>
-        <h1>vetTime</h1>
-      </header>
-      <main>
-        <h2>Connexion</h2>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Email:
-            <input type="email" value={email} onChange={handleEmailChange} />
-          </label>
-          <label>
-            Mot de passe:
-            <input type="password" value={password} onChange={handlePasswordChange} />
-          </label>
-          <button type="submit">Se connecter</button>
-        </form>
-      </main>
+    <div className="login-page">
+      <img src={logo} id='logo'/>
+      <h1>Connexion</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+          />
+        </div>
+        <button type="submit">Se connecter</button>
+      </form>
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;
