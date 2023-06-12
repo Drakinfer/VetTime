@@ -110,7 +110,7 @@ const Signup = () => {
               required
             />
           </div>
-          <button type="button" onClick={handlePreviousStep}>
+          <button type="button" id='precedent-btn' onClick={handlePreviousStep}>
             Précédent
           </button>
           <button type="submit">Suivant</button>
@@ -158,7 +158,7 @@ const Signup = () => {
               required
             />
           </div>
-          <button type="button" onClick={handlePreviousStep}>
+          <button type="button" id='precedent-btn' onClick={handlePreviousStep}>
             Précédent
           </button>
           <button type="submit">S'inscrire</button>
