@@ -16,8 +16,6 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Ici, vous pouvez ajouter la logique pour traiter la soumission du formulaire
-    // par exemple, en envoyant les données d'authentification au serveur
   };
 
   return (
