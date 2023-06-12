@@ -62,7 +62,7 @@ const Signup = () => {
   return (
     <div className="signup-page">
       <img id="logo" src={logo}/>
-      <h1>Inscription - Étape {step}</h1>
+      <h1>Inscription - étape {step}</h1>
       {step === 1 && (
         <form onSubmit={handleNextStep}>
           <div className="form-group">
@@ -164,6 +164,11 @@ const Signup = () => {
           <button type="submit">S'inscrire</button>
         </form>
       )}
+    <div className="progress-bar">
+    <span className={`progress-dot ${step >= 1 ? 'filled' : ''}`} />
+    <span className={`progress-dot ${step >= 2 ? 'filled' : ''}`} />
+    <span className={`progress-dot ${step >= 3 ? 'filled' : ''}`} />
+    </div>
     </div>
   );
 };
