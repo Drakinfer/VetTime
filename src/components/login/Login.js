@@ -4,7 +4,7 @@ import logo from '../../assets/images/logovet.png';
 import './Login.css';
 import axios from 'axios';
 
-const LoginPage = () => {
+const LoginPage = ({ onHideNavBar }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signUp, setSignUp] = useState(false);

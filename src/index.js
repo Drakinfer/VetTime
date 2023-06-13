@@ -11,6 +11,7 @@ import Login from './components/login/Login';
 import HomePage from './pages/HomePage';
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
+
 const router = createBrowserRouter([
   {
     path: "/",

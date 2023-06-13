@@ -9,11 +9,11 @@ const NavBar = () => (
         <div className='navStyle'>
             <div>
 
-                <Nav.Item className='test' icon={<HomeIcon />}>Home</Nav.Item>
+                <Nav.Item className='test' icon={<HomeIcon />} href='/'>Home</Nav.Item>
                 <Nav.Item className='test'>FAQ</Nav.Item>
             </div>
             <img src={logo} id='logo' className='logo' />
-            <Nav.Item className='test' icon={<ImportIcon />}>Se connecter</Nav.Item>
+            <Nav.Item className='test' icon={<ImportIcon />} href='login'>Se connecter</Nav.Item>
         </div>
 
     </Nav>
