@@ -8,8 +8,7 @@ import {
 import ErrorPage from "./error-page";
 import NavBar from './components/nav/nav';
 import Login from './components/login/Login';
-import HomePage from './pages/HomePage';
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import BackOfficeVeto from './components/backOfficeVeto/backOfficeVeto'
 
 
 const router = createBrowserRouter([
@@ -21,7 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-
+  },
+  {
+    path: "/rdv",
+    element: <RendezVousVeto />,
   },
 ]);
 

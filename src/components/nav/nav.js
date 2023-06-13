@@ -11,6 +11,7 @@ const NavBar = () => (
 
                 <Nav.Item className='test' icon={<HomeIcon />} href='/'>Home</Nav.Item>
                 <Nav.Item className='test'>FAQ</Nav.Item>
+                <Nav.Item className='test' href='/rdv'>Rendez-vous</Nav.Item>
             </div>
             <img src={logo} id='logo' className='logo' />
             <Nav.Item className='test' icon={<ImportIcon />} href='login'>Se connecter</Nav.Item>
