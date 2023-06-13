@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from '../../assets/images/logovet.png';
 import './Login.css';
 
-const LoginPage = () => {
+const LoginPage = ({ onHideNavBar }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,7 +20,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-page">
-      <img src={logo} id='logo'/>
+      <img src={logo} id='logo' />
       <h1>Connexion</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
