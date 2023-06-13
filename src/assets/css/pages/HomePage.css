@@ -1,0 +1,16 @@
+#root{
+    height: 100vh;
+}
+
+.content{
+    margin: auto;
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.title{
+    text-align: center;
+}
