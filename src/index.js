@@ -9,6 +9,7 @@ import ErrorPage from "./error-page";
 import NavBar from './components/nav/nav';
 import Login from './components/login/Login';
 import BackOfficeVeto from './components/backOfficeVeto/backOfficeVeto'
+import RendezVousVeto from './components/RendezVousVeto/rendezVousVeto'
 
 
 const router = createBrowserRouter([
@@ -20,7 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-
+  },
+  {
+    path: "/rdv",
+    element: <RendezVousVeto />,
   },
 ]);
 

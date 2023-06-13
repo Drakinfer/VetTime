@@ -1,0 +1,27 @@
+.interfaceVeto {
+  padding: 10px;
+}
+
+.test1 {
+  display: flex;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.width {
+  width: 100%;
+}
+
+.titleRubrique {
+  display: flex;
+  justify-content: center;
+  color: white;
+  border-radius: 20px;
+  width: 1300px;
+  margin-left: -13px;
+  height: 55px;
+  align-items: center;
+}
