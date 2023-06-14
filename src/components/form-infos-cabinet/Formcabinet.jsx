@@ -62,7 +62,6 @@ const FormCabinet = () => {
   return (
     <div className="container">
       <Popup isOpen={showPopup} onClose={closePopup} />
-      <h2>Les informations de mon cabinet :</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="nomCabinet">Nom du cabinet:</label>
