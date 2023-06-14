@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Formcabinet.css';
-import Popup from './Popup';
+import Popup from '../popup/Popup';
 
 const FormCabinet = () => {
   const [ville, setVille] = useState('');
@@ -12,6 +12,9 @@ const FormCabinet = () => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
   const [showPopup, setShowPopup] = useState(true);
+
+  const title = 'Informations cabinet';
+  const messagePopup = "Nous vous invitons à renseigner toutes les informations de votre cabinet. Cela aidera au référencement de votre cabinet afin que les utilisateurs de VetTime puissent résérver un rendez-vous avez vous.";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,7 +64,7 @@ const FormCabinet = () => {
 
   return (
     <div className="container">
-      <Popup isOpen={showPopup} onClose={closePopup} />
+      <Popup isOpen={showPopup} onClose={closePopup} title={title} message={messagePopup} type="other" />
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="nomCabinet">Nom du cabinet:</label>
