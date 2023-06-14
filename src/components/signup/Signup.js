@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+
 import logo from '../../assets/images/logovet.png'
+import axios from 'axios';
 import './Signup.css';
 
 const Signup = () => {
@@ -55,8 +57,27 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Ici, vous pouvez ajouter la logique pour traiter la soumission du formulaire
-    // par exemple, en envoyant les données d'inscription au serveur
+    let newUserBody = {
+      email : email,
+      password : password,
+      nom : lastName,
+      prenom : firstName,
+      adresse : address,
+      isVeto : 0
+    }
+    if(firstName && lastName && email && password && address){
+      axios.post('http://localhost:8000/user/users', newUserBody, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
   };
 
   return (

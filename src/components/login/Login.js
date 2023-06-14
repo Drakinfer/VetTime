@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import Signup from '../signup/Signup';
 import logo from '../../assets/images/logovet.png';
 import './Login.css';
+import axios from 'axios';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signUp, setSignUp] = useState(false);
+  const [authError, setAuthError] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -22,7 +24,27 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  };
+
+    axios.get('http://localhost:8000/user/auth', {params : {
+        email: email,
+        password: password
+    }})
+      .then(response => {
+        if(response.data.user){
+          console.log("authentifié");
+          setAuthError(false);
+
+          // METTRE EN PLACE SYSTEME DASHBOARD
+        }
+        else{
+          console.log("non authentifié");
+          setAuthError(true);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+};
 
   return (
     <div>
@@ -60,6 +82,7 @@ const LoginPage = () => {
           </div>
           <button type="submit">Se connecter</button>
           <button id="signup" onClick={handleSignup}>Inscription</button>
+          <p>{authError ? "Mot de passe erronné" : ""}</p>
         </form>
       </div>
     }
