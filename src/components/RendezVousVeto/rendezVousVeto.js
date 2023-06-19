@@ -8,16 +8,16 @@ import Popup from '../popup/Popup';
 
 const RendezVousVetoPage = () => {
 
-  const [showPopup, setShowPopup] = useState(true);
-  const title = 'Informations cabinet';
-  const messagePopup = "Message pop-up";
+  const [showPopup, setShowPopup] = useState(false);
+  const title = 'Annulation rendez-vous';
+  const messagePopup = "Êtes vous sûr de vouloir annuler le rendez-vous ?";
 
   const closePopup = () => {
     setShowPopup(false);
   };
 
   const handleDelete = () => {
-    // MA FONCTION DELETE
+    setShowPopup(true)
   }
   //const showPresentationVeto = 
 
@@ -44,7 +44,7 @@ const RendezVousVetoPage = () => {
               <div className='col-4 center'><em>test</em></div>
               <div className='col-3 center'><em>test</em></div>
               <Tooltip title="Annuler">
-                <div className='col-1 icon center' >
+                <div onClick={handleDelete} className='col-1 icon center' >
                   <FontAwesomeIcon icon={faXmark} />
 
                 </div>
