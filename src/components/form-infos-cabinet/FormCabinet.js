@@ -23,15 +23,26 @@ const FormCabinet = () => {
       telCabinet,
       latitude,
       longitude,
+      idUser : 0,
     };
-    console.log(formData);
-    setVille('');
-    setCP('');
-    setNomCabinet('');
-    setAdresse('');
-    setTelCabinet('');
-    setLatitude('');
-    setLongitude('');
+    axios.post('http://localhost:8000/user/users', formData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        console.log(response.data);
+        setVille('');
+        setCP('');
+        setNomCabinet('');
+        setAdresse('');
+        setTelCabinet('');
+        setLatitude('');
+        setLongitude('');
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
 
