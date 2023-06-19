@@ -25,18 +25,20 @@ const LoginPage = ({ onHideNavBar }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.get('http://localhost:8000/user/auth', {params : {
+    axios.get('http://localhost:8000/user/auth', {
+      params: {
         email: email,
         password: password
-    }})
+      }
+    })
       .then(response => {
-        if(response.data.user){
+        if (response.data.user) {
           console.log("authentifié");
           setAuthError(false);
 
           // METTRE EN PLACE SYSTEME DASHBOARD
         }
-        else{
+        else {
           console.log("non authentifié");
           setAuthError(true);
         }
@@ -44,17 +46,18 @@ const LoginPage = ({ onHideNavBar }) => {
       .catch(error => {
         console.error(error);
       });
-};
+  };
 
   return (
+
     <div>
-      {signUp ? 
+      {signUp ?
 
 
-      <Signup/>
+        <Signup />
 
-      :       
-      
+        :
+
         <div className="login-page">
         <img src={logo} id='logo'/>
         <h1>Connexion</h1>

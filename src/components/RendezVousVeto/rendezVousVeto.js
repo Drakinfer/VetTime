@@ -7,7 +7,17 @@ import Tooltip from '@mui/material/Tooltip';
 
 const rendezVousVetoPage = () => {
 
+  const [showPopup, setShowPopup] = useState(false);
+  const title = 'Annulation rendez-vous';
+  const messagePopup = "Êtes vous sûr de vouloir annuler le rendez-vous ?";
 
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  const handleDelete = () => {
+    setShowPopup(true)
+  }
   //const showPresentationVeto = 
 
   return (
@@ -21,20 +31,21 @@ const rendezVousVetoPage = () => {
             <DateFilter></DateFilter>
           </div>
 
-          <div className='row width mb-2'>
-            <div className='col-4 center h5'>Prénom</div>
-            <div className='col-4 center h5'>Date</div>
-            <div className='col-3 center h5'>Animal</div>
-          </div>
-          <div className='row test1 form-control form-control-lg mb-2 col-12'>
-            <div className='col-4 center'><em>test</em></div>
-            <div className='col-4 center'><em>test</em></div>
-            <div className='col-3 center'><em>test</em></div>
-            <Tooltip title="Annuler">
-              <div className='col-1 icon center' >
-                <FontAwesomeIcon icon={faXmark} />
-              </div>
-            </Tooltip>
+            <div className='row width mb-2'>
+              <div className='col-4 center h5'>Prénom</div>
+              <div className='col-4 center h5'>Date</div>
+              <div className='col-3 center h5'>Animal</div>
+            </div>
+            <div className='row test1 form-control form-control-lg mb-2 col-12'>
+              <div className='col-4 center'><em>test</em></div>
+              <div className='col-4 center'><em>test</em></div>
+              <div className='col-3 center'><em>test</em></div>
+              <Tooltip title="Annuler">
+                <div onClick={handleDelete} className='col-1 icon center' >
+                  <FontAwesomeIcon icon={faXmark} />
+
+                </div>
+              </Tooltip>
 
           </div>
           <div className='row test1 form-control form-control-lg mb-2'>
