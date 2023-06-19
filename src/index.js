@@ -5,26 +5,24 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import ErrorPage from "./error-page";
 import NavBar from './components/nav/nav';
 import Login from './components/login/Login';
-import BackOfficeVeto from './components/backOfficeVeto/backOfficeVeto'
+import HomePage from './pages/HomePage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <BackOfficeVeto />,
-    // errorElement: <ErrorPage />,
+    element: <HomePage />,
   },
   {
     path: "/login",
     element: <Login />,
   },
-  {
-    path: "/rdv",
-    element: <RendezVousVeto />,
-  },
+  // {
+  //   path: "/rdv",
+  //   element: <RendezVousVeto />,
+  // },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
