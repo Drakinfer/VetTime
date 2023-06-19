@@ -14,8 +14,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.homeNav {
-  background-image: linear-gradient(to bottom, #4ae2d0, #064a3f);
-  /*color: white !important;*/
-}

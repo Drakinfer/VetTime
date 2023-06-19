@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-import logo from '../../assets/images/logovet.png'
 import axios from 'axios';
 import './Signup.css';
 
@@ -82,7 +81,6 @@ const Signup = () => {
 
   return (
     <div className="signup-page">
-      <img id="logo" src={logo}/>
       <h1>Inscription - étape {step}</h1>
       {step === 1 && (
         <form onSubmit={handleNextStep}>
