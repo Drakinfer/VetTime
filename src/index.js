@@ -8,6 +8,7 @@ import {
 import NavBar from './components/nav/nav';
 import Login from './components/login/Login';
 import HomePage from './pages/HomePage';
+import FormCabinet from './components/form-infos-cabinet/FormCabinet';
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+  {
+    path : "/veto",
+    element : <FormCabinet/>,
+  }
   // {
   //   path: "/rdv",
   //   element: <RendezVousVeto />,
