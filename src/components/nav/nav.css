@@ -1,0 +1,16 @@
+.test {
+    color: white !important;
+    background: none !important;
+}
+
+.navStyle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.logo {
+    width: 180px !important;
+    margin-right: 120px;
+}

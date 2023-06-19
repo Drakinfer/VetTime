@@ -1,3 +1,6 @@
+@import "rsuite/dist/rsuite.css";
+@import 'bootstrap/dist/css/bootstrap.css';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +13,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.homeNav {
+  background-image: linear-gradient(to bottom, #4ae2d0, #064a3f);
+  /*color: white !important;*/
 }
