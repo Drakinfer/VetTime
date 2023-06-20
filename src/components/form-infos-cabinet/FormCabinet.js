@@ -16,7 +16,6 @@ const FormCabinet = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const id = 4
     const formData = {
       ville,
       cp,
@@ -24,9 +23,10 @@ const FormCabinet = () => {
       adresse,
       telCabinet,
       latitude,
-      longitude
+      longitude,
+      idUser : 0,
     };
-    axios.post(`http://localhost:8000/cabinet/cabinet/${id}`, formData, {
+    axios.post('http://localhost:8000/user/users', formData, {
       headers: {
         'Content-Type': 'application/json'
       }
