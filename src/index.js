@@ -10,6 +10,8 @@ import NavBar from './components/nav/nav';
 import Login from './components/login/Login';
 import BackOfficeVeto from './components/backOfficeVeto/backOfficeVeto'
 import RendezVousVeto from './components/RendezVousVeto/rendezVousVeto'
+import HomePage from './pages/HomePage';
+import FormCabinet from './components/form-infos-cabinet/FormCabinet';
 
 
 const router = createBrowserRouter([
@@ -17,6 +19,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <BackOfficeVeto />,
     errorElement: <ErrorPage />,
+    element: <HomePage />,
   },
   {
     path: "/login",
@@ -26,6 +29,14 @@ const router = createBrowserRouter([
     path: "/rdv",
     element: <RendezVousVeto />,
   },
+  {
+    path: "/veto",
+    element: <FormCabinet />,
+  }
+  // {
+  //   path: "/rdv",
+  //   element: <RendezVousVeto />,
+  // },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -38,5 +49,4 @@ root.render(
       <RouterProvider router={router} />
     </div>
   </React.StrictMode>
-
 );

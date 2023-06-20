@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import Signup from '../signup/Signup';
-import logo from '../../assets/images/logovet.png';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
 
 const LoginPage = ({ onHideNavBar }) => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(localStorage.getItem('email') || '');
   const [password, setPassword] = useState('');
   const [signUp, setSignUp] = useState(false);
   const [authError, setAuthError] = useState(false);
+  const [isVeto, setIsVeto] = useState(localStorage.getItem('isVeto') || '');
+
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -32,19 +35,24 @@ const LoginPage = ({ onHideNavBar }) => {
       }
     })
       .then(response => {
-        if (response.data.user) {
-          console.log("authentifié");
-          setAuthError(false);
-
-          // METTRE EN PLACE SYSTEME DASHBOARD
-        }
-        else {
-          console.log("non authentifié");
+        if (response.data.success) {
+          const user = response.data.user;
+          if (user.isVeto === 1) {
+            localStorage.setItem('email', user.emailUser);
+            localStorage.setItem('isVeto', '1');
+            //navigate('/dashboard/veto'); // ENVOYER VERS DASHBOARD VETO
+          } else {
+            localStorage.setItem('email', user.emailUser);
+            localStorage.setItem('isVeto', '0');
+            //navigate('/dashboard/user'); // ENVOYER VERS DASHBOARD USER
+          }
+        } else {
           setAuthError(true);
         }
       })
       .catch(error => {
-        console.error(error);
+        console.error("err", error);
+        setAuthError(true);
       });
   };
 
@@ -59,7 +67,6 @@ const LoginPage = ({ onHideNavBar }) => {
         :
 
         <div className="login-page">
-          <img src={logo} id='logo' />
           <h1>Connexion</h1>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -89,7 +96,6 @@ const LoginPage = ({ onHideNavBar }) => {
           </form>
         </div>
       }
-
     </div>
   );
 };

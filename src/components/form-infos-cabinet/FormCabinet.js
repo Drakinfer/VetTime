@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Formcabinet.css';
-import Popup from '../popup/Popup';
+import Popup from './Popup';
+import axios from 'axios';
 
 const FormCabinet = () => {
   const [ville, setVille] = useState('');
@@ -13,11 +14,9 @@ const FormCabinet = () => {
   const [longitude, setLongitude] = useState('');
   const [showPopup, setShowPopup] = useState(true);
 
-  const title = 'Informations cabinet';
-  const messagePopup = "Nous vous invitons à renseigner toutes les informations de votre cabinet. Cela aidera au référencement de votre cabinet afin que les utilisateurs de VetTime puissent résérver un rendez-vous avez vous.";
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    const id = 4
     const formData = {
       ville,
       cp,
@@ -25,16 +24,26 @@ const FormCabinet = () => {
       adresse,
       telCabinet,
       latitude,
-      longitude,
+      longitude
     };
-    console.log(formData);
-    setVille('');
-    setCP('');
-    setNomCabinet('');
-    setAdresse('');
-    setTelCabinet('');
-    setLatitude('');
-    setLongitude('');
+    axios.post(`http://localhost:8000/cabinet/cabinet/${id}`, formData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => {
+        console.log(response.data);
+        setVille('');
+        setCP('');
+        setNomCabinet('');
+        setAdresse('');
+        setTelCabinet('');
+        setLatitude('');
+        setLongitude('');
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
 
@@ -50,7 +59,7 @@ const FormCabinet = () => {
 
   };
 
-  const onClickSuggestion = (sugg) =>{
+  const onClickSuggestion = (sugg) => {
     setLatitude(sugg.geometry.coordinates[0]);
     setLongitude(sugg.geometry.coordinates[1]);
     setVille(sugg.properties.city);
@@ -63,8 +72,8 @@ const FormCabinet = () => {
 
 
   return (
-    <div className="container">
-      <Popup isOpen={showPopup} onClose={closePopup} title={title} message={messagePopup} type="other" />
+    <div className="container2">
+      <Popup isOpen={showPopup} onClose={closePopup} />
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="nomCabinet">Nom du cabinet:</label>
@@ -124,7 +133,7 @@ const FormCabinet = () => {
             onChange={(e) => setCP(e.target.value)}
             disabled
           />
-          
+
         </div>
         <div>
           <label htmlFor="telCabinet">Téléphone du cabinet:</label>
@@ -140,7 +149,7 @@ const FormCabinet = () => {
         </div>
       </form>
     </div>
-  );     
+  );
 };
 
 export default FormCabinet;
