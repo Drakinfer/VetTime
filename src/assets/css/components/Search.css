@@ -4,3 +4,9 @@
     margin-right: auto;
 }
 
+table{
+    width: 300px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 2px 2px 2px black;
+}
