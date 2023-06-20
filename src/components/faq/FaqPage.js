@@ -9,13 +9,12 @@ const FaqPage = () => {
         },
         {
             question: "Comment prendre rendez-vous pour mon animal ?",
-            answer: "Vous pouvez prendre rendez-vous en appelant notre clinique vétérinaire au 123-456-7890 ou en utilisant notre formulaire de rendez-vous en ligne."
+            answer: "Vous pouvez prendre rendez-vous en utilisant notre formulaire de rendez-vous en ligne ou en appelant au 06 00 00 00 00."
         },
         {
             question: "Quels services vétérinaires proposez-vous ?",
             answer: "Nous proposons une large gamme de services vétérinaires, notamment les consultations, les vaccinations, les chirurgies, les analyses de laboratoire et les soins dentaires pour les animaux de compagnie."
         }
-        // Ajoutez d'autres questions et réponses ici
     ];
 
     return (

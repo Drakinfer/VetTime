@@ -64,6 +64,7 @@ const RendezVousVetoPage = () => {
       .get('http://localhost:8000/rdv/rdv')
       .then(response => {
         // Traitement de la réponse
+        console.log(response.data.data)
         setRendezVous(response.data.data);
       })
       .catch(error => {
