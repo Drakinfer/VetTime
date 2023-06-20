@@ -2,10 +2,6 @@
   padding: 10px;
 }
 
-.test1 {
-  display: flex;
-}
-
 .center {
   display: flex;
   justify-content: center;

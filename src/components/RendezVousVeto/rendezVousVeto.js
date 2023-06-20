@@ -94,14 +94,14 @@ const RendezVousVetoPage = () => {
             </div>
 
             <div className='row width mb-2' >
-              <div className='col-4 center h5'>Nom client</div>
+              <div className='col-4 center h5'>Client</div>
               <div className='col-4 center h5'>Date</div>
               <div className='col-3 center h5'>Animal</div>
             </div>
 
             {rendezVous.map(rdv => (
-              <div key={rdv.idRdv} className='row test1 form-control form-control-lg mb-2 col-12'>
-                <div className='col-4 center'>{rdv.nomUser}</div>
+              <div key={rdv.idRdv} className='row d-flex form-control form-control-lg mb-2 col-12'>
+                <div className='col-4 center'>{rdv.nomUser.toUpperCase()} {rdv.prnmUser}</div>
                 <div className='col-4 center'>{formatDate(rdv.date)}</div>
                 <div className='col-3 center'>{rdv.especeAnimal}</div>
                 <Tooltip title="Annuler">
