@@ -1,13 +1,15 @@
 import {useState, useEffect } from 'react'
+import {useNavigate } from 'react-router-dom'
 import { Send } from 'react-bootstrap-icons';
+import axios from 'axios'
 import '../../assets/css/components/Search.css';
 import '../../assets/css/components/Button.css';
 import '../../assets/css/common/Margin.css';
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('')
-    const [city, setCity] = useState(null);
     const [mapCity, setMapCity] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchCities();
@@ -30,13 +32,21 @@ const Search = () => {
       };
 
       const handleItemClick = (item) => {
-        setCity(item);
         setSearchTerm(item.nom);
       };
 
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.get('http://localhost:8000/cabinet/cabinet').then(response => {
+          navigate('/cabinets', {state: {cabinets: JSON.stringify(response.data.data)}})
+        }).catch(error => {
+          console.error("err",error);
+        });
+      }
+
     return (
        <>
-        <form className="search">
+        <form className="search" onSubmit={handleSubmit}>
             <input type="text" className="mr-5" placeholder="Localisation" value={searchTerm} onInput={handleSearchChange}/>
             <button type="submit" className="send-button"><Send  /></button>
         </form>

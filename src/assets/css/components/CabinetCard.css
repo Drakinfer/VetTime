@@ -1,0 +1,30 @@
+.card-header{
+    background-image: linear-gradient(to bottom, #4ae2d0, #064a3f);
+    color: white !important;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-row{
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+}
+
+.col-first{
+    width: 70%;
+    flex: none
+}
+
+.col-last{
+    width: 30%;
+    flex: none;
+    display: flex;
+    align-items: center;
+}
+
+p{
+    margin-bottom: 0;
+}
