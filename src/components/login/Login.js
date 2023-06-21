@@ -51,7 +51,7 @@ const LoginPage = ({ onHideNavBar }) => {
         }
       })
       .catch(error => {
-        console.error("err",error);
+        console.error("err", error);
         setAuthError(true);
       });
   };
@@ -67,35 +67,35 @@ const LoginPage = ({ onHideNavBar }) => {
         :
 
         <div className="login-page">
-        <h1>Connexion</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              placeholder='monemail@gmail.com'
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Mot de passe</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-            />
-          </div>
-          <button type="submit">Se connecter</button>
-          <button id="signup" onClick={handleSignup}>Inscription</button>
-          <p>{authError ? "Mot de passe erronné" : ""}</p>
-        </form>
-      </div>
-    }
+          <h1>Connexion</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder='monemail@gmail.com'
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Mot de passe</label>
+              <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+            </div>
+            <button type="submit">Se connecter</button>
+            <button id="signup" onClick={handleSignup}>Inscription</button>
+            <p>{authError ? "Mot de passe erronné" : ""}</p>
+          </form>
+        </div>
+      }
     </div>
   );
 };

@@ -10,7 +10,7 @@ const NavBar = () => (
             <div>
 
                 <Nav.Item className='test' icon={<HomeIcon />} href='/'>Home</Nav.Item>
-                <Nav.Item className='test'>FAQ</Nav.Item>
+                <Nav.Item className='test' href='/faq'>FAQ</Nav.Item>
                 <Nav.Item className='test' href='/rdv'>Rendez-vous</Nav.Item>
             </div>
             <img src={logo} id='logo' className='logo' />
