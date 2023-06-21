@@ -59,7 +59,7 @@ const FormCabinet = () => {
 
   };
 
-  const onClickSuggestion = (sugg) =>{
+  const onClickSuggestion = (sugg) => {
     setLatitude(sugg.geometry.coordinates[0]);
     setLongitude(sugg.geometry.coordinates[1]);
     setVille(sugg.properties.city);
@@ -72,7 +72,7 @@ const FormCabinet = () => {
 
 
   return (
-    <div className="container">
+    <div className="container2">
       <Popup isOpen={showPopup} onClose={closePopup} />
       <form onSubmit={handleSubmit}>
         <div>
@@ -149,7 +149,7 @@ const FormCabinet = () => {
         </div>
       </form>
     </div>
-  );     
+  );
 };
 
 export default FormCabinet;
