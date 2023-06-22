@@ -6,6 +6,7 @@
 .test {
     color: white !important;
     background: none !important;
+    z-index: 5;
 }
 
 .navStyle {

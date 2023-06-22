@@ -18,7 +18,7 @@ const Creneaux = (props) => {
                 let start_date = new Date(obj.date_start)
                 console.log(obj)
                 return {
-                  title: start_date.getUTCMinutes() != 0 ? start_date.getHours() + 'h' + start_date.getUTCMinutes() : start_date.getHours() + 'h',
+                  title: start_date.getUTCMinutes() !== 0 ? start_date.getHours() + 'h' + start_date.getUTCMinutes() : start_date.getHours() + 'h',
                   start: start_date,
                   end: new Date(obj.date_end), 
                 };
@@ -27,7 +27,7 @@ const Creneaux = (props) => {
         }).catch(error => {
           console.error("err",error);
         });
-    }, []);
+    });
     
     return (
         <div className="popup-creneaux">

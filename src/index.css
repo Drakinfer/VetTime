@@ -9,6 +9,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(198, 248, 255);
+  background-image: url("./assets/css/pages/Calendar.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 code {

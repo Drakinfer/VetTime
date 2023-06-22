@@ -4,7 +4,9 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-image: linear-gradient(to bottom, #4ae2d0, #064a3f);
+  background-image: url("../../assets/css/pages/Cat.jpg");
+  background-size: cover;
+  background-position: center;
   font-family: Arial, sans-serif;
 }
 

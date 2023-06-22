@@ -18,24 +18,25 @@ const FaqPage = () => {
     ];
 
     return (
-        <><div className='container'>
-            <div className='mt-2 col-12'>
-                <div className='mb-4 homeNav titleRubrique'>
-                    <span className='h3'>FAQ</span>
+        <div className='image-faq'>
+            <div className='container'>
+                <div className='mt-2 col-12'>
+                    <div className='mb-4 homeNav titleRubrique'>
+                        <span className='h3'>FAQ</span>
+                    </div>
+                </div>
+                <div className="faq-page form-control form-control-lg">
+                    <hr></hr>
+                    {faqs.map((faq, index) => (
+                        <div key={index} className="faq-item">
+                            <h3>{faq.question}</h3>
+                            <p>{faq.answer}</p>
+                            <hr></hr>
+                        </div>
+                    ))}
                 </div>
             </div>
-            <div className="faq-page form-control form-control-lg">
-                <hr></hr>
-                {faqs.map((faq, index) => (
-                    <div key={index} className="faq-item">
-                        <h3>{faq.question}</h3>
-                        <p>{faq.answer}</p>
-                        <hr></hr>
-                    </div>
-                ))}
-            </div>
         </div>
-        </>
     );
 };
 

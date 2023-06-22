@@ -8,6 +8,7 @@ const HomePage = () => {
                 <h2 className="title">Trouver le vétérinaire proche de chez vous :</h2>
                 <Search />
             </div>
+           
         </>
     )
     ;
