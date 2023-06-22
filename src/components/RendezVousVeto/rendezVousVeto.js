@@ -20,39 +20,6 @@ const RendezVousVetoPage = () => {
   const handleDelete = () => {
     setShowPopup(true)
   }
-  //   event.preventDefault();
-
-  //   axios.get('http://localhost:8000/rdv/rdv', {
-  //     params: {
-  //       idUser: email,
-  //       cabinet_id: password,
-  //       especeAnimal : tet, 
-  //       date: fdesff
-  //     }
-  //   })
-  //     .then(response => {
-  //       if (response.data.success) {
-  //         const user = response.data.user;
-  //         if (user.isVeto === 1) {
-  //           localStorage.setItem('email', user.emailUser);
-  //           localStorage.setItem('isVeto', '1');
-  //           //navigate('/dashboard/veto'); // ENVOYER VERS DASHBOARD VETO
-  //         } else {
-  //           localStorage.setItem('email', user.emailUser);
-  //           localStorage.setItem('isVeto', '0');
-  //           //navigate('/dashboard/user'); // ENVOYER VERS DASHBOARD USER
-  //         }
-  //       } else {
-  //         setAuthError(true);
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error("err", error);
-  //       setAuthError(true);
-  //     });
-  // };
-  //const showPresentationVeto = 
-
 
   useEffect(() => {
     // Fonction exécutée au chargement de la page

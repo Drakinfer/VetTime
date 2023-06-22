@@ -19,7 +19,7 @@ import FaqPage from './components/faq/FaqPage';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <BackOfficeVeto />,
+
     errorElement: <ErrorPage />,
     element: <HomePage />,
   },
@@ -32,14 +32,8 @@ const router = createBrowserRouter([
     element: <CabinetFoundPage />,
   },
   {
-    path: "/cabinets",
-    element: <CabinetFoundPage />,
-  },
-  {
-    path: "/veto",
-    element: <FormCabinet />,
-
-
+    path: "/backVeto",
+    element: <BackOfficeVeto />,
   },
   {
     path: "/veto",
