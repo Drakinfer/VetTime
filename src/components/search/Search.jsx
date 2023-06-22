@@ -9,11 +9,30 @@ import '../../assets/css/common/Margin.css';
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('')
     const [mapCity, setMapCity] = useState([]);
+    const [selectedCity, setSelectedCity] = useState(null)
     const navigate = useNavigate()
 
     useEffect(() => {
         fetchCities();
       }, []);
+
+      useEffect(() => {
+        fetchCity();
+      }, []);
+
+    const fetchCity = async (name) => {
+      try {
+        const response = await fetch('https://geo.api.gouv.fr/communes?nom=' + name + '&fields=centre,departement&limit=1');
+        const jsonData = await response.json();
+        setSelectedCity(jsonData);
+      } catch (error) {
+        console.log('Error fetching data:', error);
+      }
+    };
+
+    console.log(searchTerm)
+  
+    
     
     const fetchCities = async (name) => {
         try {
@@ -26,21 +45,37 @@ const Search = () => {
     };
 
     const handleSearchChange = (event) => {
-        const { value } = event.target;
-        setSearchTerm(value);
-        fetchCities(value);
-      };
+      const { value } = event.target;
+      setSearchTerm(value);
+      fetchCities(value);
+    };
 
       const handleItemClick = (item) => {
+        setSelectedCity(item);
         setSearchTerm(item.nom);
+        setMapCity([]);
       };
 
-      const handleSubmit = (event) => {
+      const handleSubmit = async (event) => {
         event.preventDefault();
-        axios.get('http://localhost:8000/cabinet/cabinet').then(response => {
-          navigate('/cabinets', {state: {cabinets: JSON.stringify(response.data.data)}})
-        }).catch(error => {
-          console.error("err",error);
+
+        !selectedCity && await fetchCity(searchTerm);
+        
+        console.log(selectedCity);
+
+        const params = new URLSearchParams();
+        params.append('longitude', selectedCity['centre'].coordinates[0]);
+        params.append('latitude', selectedCity['centre'].coordinates[1]);
+
+        const url = `http://localhost:8000/cabinet/cabinetRayon?${params.toString()}`;
+
+        axios.get(url)
+        .then(response => {
+          console.log(response)
+          navigate('/cabinets', {state: {cabinets: JSON.stringify(response.data.data[0])}})
+        })
+        .catch(error => {
+          console.error(error);
         });
       }
 
