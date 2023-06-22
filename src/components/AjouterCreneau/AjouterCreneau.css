@@ -1,0 +1,19 @@
+.AjoutContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 10%;
+    /* background-color: gray; */
+    margin-left: 10%;
+    margin-right: 10%;
+    transform: translateY(130%);
+}
+
+.AjoutC {
+    width: 25%;
+}
+.button {
+    width: 15%;
+}
