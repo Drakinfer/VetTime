@@ -14,7 +14,8 @@ import HomePage from './pages/HomePage';
 import CabinetFoundPage from './pages/CabinetFoundPage';
 import FormCabinet from './components/form-infos-cabinet/FormCabinet';
 import FaqPage from './components/faq/FaqPage';
-
+import AjouterCreneau from './components/AjouterCreneau/AjouterCreneau';
+import AuthContextProvider from './components/Context/AuthContext';
 
 const router = createBrowserRouter([
   {
@@ -55,16 +56,22 @@ const router = createBrowserRouter([
     path: "/rdv",
     element: <RendezVousVeto />,
   },
+  {
+    path: "/creneau",
+    element: <AjouterCreneau />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <AuthContextProvider>
+
     <div>
       <div className='homeNav'>
         <NavBar />
       </div>
       <RouterProvider router={router} />
     </div>
-  </React.StrictMode>
+  </AuthContextProvider>
+
 );
