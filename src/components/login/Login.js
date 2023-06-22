@@ -10,10 +10,10 @@ const LoginPage = ({ onHideNavBar }) => {
   const [signUp, setSignUp] = useState(false);
   const [authError, setAuthError] = useState(false);
   const [isVeto, setIsVeto] = useState(localStorage.getItem('isVeto') || '');
-  const { loginUser } = useAuth();            
+  const { loginUser } = useAuth();
   const { user } = useAuth();
   const navigate = useNavigate();
-  
+
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -32,14 +32,14 @@ const LoginPage = ({ onHideNavBar }) => {
     await loginUser({ email, password })
     try {
       if (loginUser) {
-        navigate('dashboard/veto'); // ENVOYER VERS DASHBOARD VETO
+        // navigate('dashboard/veto'); // ENVOYER VERS DASHBOARD VETO
         if (user.isVeto === 1) {
           localStorage.setItem('email', email);
           localStorage.setItem('isVeto', '1');
         } else {
           localStorage.setItem('email', email);
           localStorage.setItem('isVeto', '0');
-          navigate('/dashboard/user'); // ENVOYER VERS DASHBOARD USER
+          // navigate('/dashboard/user'); // ENVOYER VERS DASHBOARD USER
         }
       } else {
         setAuthError(true);
