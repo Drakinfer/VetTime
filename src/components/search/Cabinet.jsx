@@ -5,7 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 const Cabinet = (props) => {
-    console.log(props)
     return (
         <>
         
@@ -21,10 +20,9 @@ const Cabinet = (props) => {
                             <p>Téléphone : {props.cabinet.telCabinet}</p>   
                         </Col>
                         <Col className="col-last">
-                            <Button>Prendre rendez-vous</Button>
+                            <Button onClick={() => props.click(props.cabinet.cabinet_id)}>Prendre rendez-vous</Button>
                         </Col>
                     </Row>
-                    
                 </Card.Body>
            </Card>
         </>
