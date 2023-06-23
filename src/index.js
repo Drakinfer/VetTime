@@ -12,6 +12,7 @@ import BackOfficeVeto from './components/backOfficeVeto/backOfficeVeto'
 import RendezVousVeto from './components/RendezVousVeto/rendezVousVeto'
 import HomePage from './pages/HomePage';
 import CabinetFoundPage from './pages/CabinetFoundPage';
+import ValidationPage from './pages/ValidationPage';
 import FormCabinet from './components/form-infos-cabinet/FormCabinet';
 import FaqPage from './components/faq/FaqPage';
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/cabinets",
     element: <CabinetFoundPage />,
+  },
+  {
+    path: "/confirmation",
+    element: <ValidationPage />,
   },
   {
     path: "/backVeto",
