@@ -20,7 +20,8 @@ const Creneaux = (props) => {
                 return {
                   title: start_date.getUTCMinutes() != 0 ? start_date.getHours() + 'h' + start_date.getUTCMinutes() : start_date.getHours() + 'h',
                   start: start_date,
-                  end: new Date(obj.date_end), 
+                  end: new Date(obj.date_end),
+                  id: obj.creneau_id 
                 };
             });
             setCreneaux(events)
@@ -42,6 +43,7 @@ const Creneaux = (props) => {
                 startAccessor="start"
                 endAccessor="end"
                 defaultView="week"
+                onSelectEvent={(event) => props.validation(event)}
             />
             ) : (
             <p>Aucun créneau disponible.</p>
